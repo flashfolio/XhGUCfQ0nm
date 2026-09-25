@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KAPULURU ATHISH - Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="window" id="about" style="top: 50px; left: 50px;">
+    <div class="title-bar"><button class="close"></button><span>About Me</span></div>
+    <div class="content">
+      <h2>KAPULURU ATHISH</h2>
+      <p><strong>Carrier Objective:</strong> To be a part of an organization where I can get a chance to explore and enhance all my knowledge and skills to contribute in the progress of organization as well as myself. I aim to work in a challenging environment that encourages continuous learning and creativity.</p>
+    </div>
+  </div>
+
+  <div class="window" id="skills" style="top: 100px; left: 300px;">
+    <div class="title-bar"><button class="close"></button><span>Technical Strengths</span></div>
+    <div class="content">
+      <ul>
+        <li><strong>Programming:</strong> Python, Java</li>
+        <li><strong>Libraries:</strong> NumPy, Pandas, Seaborn</li>
+        <li><strong>Web:</strong> HTML, CSS</li>
+        <li><strong>Database:</strong> SQL</li>
+        <li><strong>Tools:</strong> Github, Git</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="window" id="projects" style="top: 150px; left: 550px;">
+    <div class="title-bar"><button class="close"></button><span>Projects</span></div>
+    <div class="content">
+      <h3>PII Masking</h3>
+      <p>Python/Flask app for detecting and masking sensitive data using regex.</p>
+      <h3>Steganography with Python</h3>
+      <p>LSB encoding system for hiding text in images with encryption.</p>
+    </div>
+  </div>
+
+  <div class="window" id="education" style="top: 300px; left: 50px;">
+    <div class="title-bar"><button class="close"></button><span>Education</span></div>
+    <div class="content">
+      <p><strong>B.E. Computer Science and Engineering</strong><br>R.M.D Engineering College (2022-2026) | CGPA: 7.27</p>
+      <p><strong>Higher Secondary</strong><br>Narayana Jr. college (2020-2022)</p>
+      <p><strong>Secondary Education</strong><br>Vowel Techlan School (2019-2020) | 96.67%</p>
+    </div>
+  </div>
+
+  <div class="window" id="certs" style="top: 400px; left: 400px;">
+    <div class="title-bar"><button class="close"></button><span>Certifications</span></div>
+    <div class="content">
+      <ul>
+        <li>Ethical Hacking Essentials – EC-Council</li>
+        <li>AI Foundations – Oracle</li>
+        <li>Python Foundation – Infosys Springboard</li>
+        <li>Java Foundation – Infosys Springboard</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="window" id="contact" style="top: 50px; left: 700px;">
+    <div class="title-bar"><button class="close"></button><span>Contact</span></div>
+    <div class="content">
+      <p>Location: Nellore</p>
+      <p>Phone: 7989084939</p>
+      <p>Email: athishathish51@gmail.com</p>
+      <p><a href="https://github.com/ATHISH444" target="_blank">Github</a></p>
+      <p><a href="https://www.linkedin.com/in/athish-k-363b39285/" target="_blank">LinkedIn</a></p>
+    </div>
+  </div>
+
+  <script>
+    let zIndex = 10;
+    document.querySelectorAll('.window').forEach(win => {
+      win.addEventListener('mousedown', () => {
+        win.style.zIndex = ++zIndex;
+      });
+      win.querySelector('.close').addEventListener('click', () => {
+        win.style.display = 'none';
+      });
+
+      const header = win.querySelector('.title-bar');
+      header.onmousedown = function(e) {
+        let shiftX = e.clientX - win.getBoundingClientRect().left;
+        let shiftY = e.clientY - win.getBoundingClientRect().top;
+        function moveAt(pageX, pageY) {
+          win.style.left = pageX - shiftX + 'px';
+          win.style.top = pageY - shiftY + 'px';
+        }
+        function onMouseMove(e) { moveAt(e.pageX, e.pageY); }
+        document.addEventListener('mousemove', onMouseMove);
+        document.onmouseup = function() {
+          document.removeEventListener('mousemove', onMouseMove);
+          document.onmouseup = null;
+        };
+      };
+    });
+  </script>
+</body>
+</html>
